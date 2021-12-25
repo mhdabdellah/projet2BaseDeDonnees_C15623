@@ -1,0 +1,126 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.rtl.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.rtl.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-grid.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-grid.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-grid.rtl.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-grid.rtl.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-reboot.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-reboot.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-reboot.rtl.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-reboot.rtl.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-utilities.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-utilities.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-utilities.rtl.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-utilities.rtl.min.css">
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <script src="js/jquery.js"></script>
+    <title>AJOUTER UTILISATEUR</title>
+</head>
+<body class="container" background="400082700017_170704.jpg">
+<div><a class="btn  "><B><I><h1  class="btn btn-outline-success" ><B><H1><H2>RAMPLIR LA FORMULAIRE Pour Ajouter Votre personne Dans La Liste De ADRARE</H2></H1></h1></I></B></a></div><br><br><br>
+
+<div class="container">
+        <form name="myForm" action="adrare.php" method="POST"  >
+            <div class="form-group">
+                <label for="nom" class="btn btn-outline-success">Nom</label>
+                <input type="" id="name" name="nom" class="form-control form-control-sm" placeholder="entrer votre nom..." oninput="checkName()"><br>
+                <span id="nameErrMsg" class="error"></span>
+            <br><br>
+			<label for="nom" class="btn btn-outline-success">Prenom</label>
+                <input type="" id="name" name="Prenom" class="form-control form-control-sm" placeholder="entrer votre Prenom..." oninput="checkName()"><br>
+                <span id="nameErrMsg" class="error"></span>
+            <br><br>
+			<label for="nom" class="btn btn-outline-success">Nom De La Famile</label>
+                <input type="" id="name" name="Famile" class="form-control form-control-sm" placeholder="entrer votre nom De La Famile..." oninput="checkName()"><br>
+                <span id="nameErrMsg" class="error"></span>
+            <br><br>
+			<label for="nom" class="btn btn-outline-success">Travaille</label>
+                <input type="" id="name" name="Travaille" class="form-control form-control-sm" placeholder="entrer votre Travaille..." oninput="checkName()"><br>
+                <span id="nameErrMsg" class="error"></span>
+            <br><br>
+			<label for="nom" class="btn btn-outline-success">Ville</label>
+                <input type="" id="name" name="Ville" class="form-control form-control-sm" placeholder="entrer votre Ville..." oninput="checkName()"><br>
+                <span id="nameErrMsg" class="error"></span>
+            <br><br>
+			<label for="nom" class="btn btn-outline-success">Duplome</label>
+                <input type="" id="name" name="Duplome" class="form-control form-control-sm" placeholder="entrer votre Duplome..." oninput="checkName()"><br>
+                <span id="nameErrMsg" class="error"></span>
+            <br><br>
+			<label for="nom" class="btn btn-outline-success">Age</label>
+                <input type="" id="name" name="Age" class="form-control form-control-sm" placeholder="entrer votre Age..." oninput="checkName()"><br>
+                <span id="nameErrMsg" class="error"></span>
+            <br><br>
+           
+                <label for="tel" class="btn btn-outline-success">Numéro De Téléphone</label>
+                <input type="" id="tel" name="tel" class="form-control" placeholder="entrer votre Numéro De Téléphone ..."  oninput="checkTel()"> 
+                <span id="errortel" class="error"></span>
+            <br><br>
+            <button type="submit" class="btn btn-primary mb-2" id="validate" onclick="validateForm(),checkTel(),checkName()"> AJOUTER </button>
+			 <input type="reset" class="btn btn-primary mb-2" id="annul" value="ANNULER">
+			<br>
+               
+    </div>
+	</form>
+   
+    </div>
+    <script>
+    
+function checkName() {
+    var x = document.myForm;
+    var input = x.name.value;
+    var errMsgHolder = document.getElementById('nameErrMsg');
+    if (input.length < 2) {
+        errMsgHolder.innerHTML =
+            'veillez entrer un nom de lettres superieur a 2';
+        return false;
+    } else if (!(/^\S{3,}$/.test(input))) {
+        errMsgHolder.innerHTML =
+            '<font color="red">le nom ne peut pas contenir des espaces</font>';
+        return false
+    }else if(!(/^[a-zA-Z]+$/.test(input)))
+    {
+        errMsgHolder.innerHTML=
+                '<font color="red">seulement les alphabetes autoriser</font>'
+    }
+    else if(!(/^(?:(\w)(?!\1\1))+$/.test(input)))
+    {
+        errMsgHolder.innerHTML=
+                '<font color="red">per 3 alphabets allowed</font>'
+    }
+    else {
+        errMsgHolder.innerHTML = '';
+        return undefined;
+    }}
+    function checkTel(){
+        var tel=document.getElementById('tel').value;
+        errortel=document.getElementById('errortel');
+        if(tel.length<8 || tel.length>8){
+        errortel.innerHTML='<font font-color="red">veillez entrer un numero exactement de nombre des chiffres egal a 8</font>'
+        return false;
+        
+        }
+    else if (!(/^[0-9]/).test(tel)){
+        errortel.innerHTML='<font color="red">saisir des chiffres</font>';
+    }
+    else{
+        tel.style.color="green";
+    }
+    }
+    //$("#validate").on("click", checkTel);
+ 
+
+
+
+      </script>
+</body>
+</html>
